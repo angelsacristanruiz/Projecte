@@ -1,4 +1,4 @@
-/* Formulari */
+/* Form */
   .form {
     position: relative;
     z-index: 1;
@@ -70,8 +70,10 @@
     border-bottom-right-radius: 3px;
     color: #FFFFFF;
     font-size: 14px;
+    /*
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
+    */
     cursor: pointer;
   }
   .form .message {
@@ -123,7 +125,7 @@
 
 
 
-/* Diseny */
+/* Desing */
   body {
     background: #ccc;
     font-family: "Roboto", sans-serif;
@@ -154,7 +156,7 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
-  #separa2{
+  #separateExit{
       display: inline-block;
       width: auto;
       height: auto;
@@ -162,17 +164,17 @@
       margin-bottom: 5%;
   }
 
-  #separa1{
+  #separateEntry{
       display: inline-block;
       width: auto;
       height: 100%;
   }
 
-  #salida, #entrada{
+  #exit, #entry{
      width: auto;
   }
 
-  #poner{
+  #putResults{
     display: none;
   }
 

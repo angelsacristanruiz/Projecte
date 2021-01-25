@@ -16,25 +16,25 @@
 				<img src="logo.png"/>
 			</div>
 
-			<form class="login-form" id="formulario" name="formulario" onsubmit="registra(); return false">
-				<div id="quitar">
-					<input id="usuari" placeholder="Nom d'usuari" required="" type="text"/>
-					<input id="contrasenya" placeholder="Contrasenya" required="" type="password"/><br/>
-					<textarea id="comentari" placeholder="Comentari opcional"></textarea><br/>
+			<form class="login-form" id="myForm" name="myForm" onsubmit="registra(); return false">
+				<div id="remove">
+					<input id="user" placeholder="Nom d'usuari" required="" type="text"/>
+					<input id="password" placeholder="Contrasenya" required="" type="password"/><br/>
+					<textarea id="comentary" placeholder="Comentari opcional"></textarea><br/>
 			&nbsp;
-					<div id="separa1">
-						<input id="entrada" name="opcion" required="" type="radio" value="Entrada" />
-						<label for="entrada">Entrada</label>
+					<div id="separateEntry">
+						<input id="entry" name="option" required="" type="radio" value="entry" />
+						<label for="entry">Entrada</label>
 					</div>
 
-					<div id="separa2">
-						<input id="salida" name="opcion" required="" type="radio" value="Sortida" />
-						<label for="salida">Sortida</label>
+					<div id="separateExit">
+						<input id="exit" name="option" required="" type="radio" value="exit" />
+						<label for="exit">Sortida</label>
 					</div>
 					<button>Enviar</button>
 				</div>
 
-				<div id="poner">
+				<div id="putResults">
 					<textarea id="muestra"> </textarea>
 				</div>
 			</form>
