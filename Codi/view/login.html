@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head><meta charset="euc-jp">
+	<head>
+		<meta charset="euc-jp">
 		<title></title>
-		<link href="css/estilo.css" rel="stylesheet" type="text/css" /><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<link href="css/login.css" rel="stylesheet" type="text/css" /><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -13,7 +14,7 @@
 
 		<div class="form">
 			<div class="thumbnail">
-				<img src="logo.png"/>
+				<img src="img/logo.png"/>
 			</div>
 
 			<form class="login-form" id="myForm" name="myForm" onsubmit="registra(); return false">
@@ -42,7 +43,7 @@
 	</body>
 		<script type="text/javascript">
 			  var usuarios = ["almendra","test1","fbodego", "asacristan","gbombardo","eva.garell","raguilera","obalmes","ccabezon","mdenadal","mdominguez","floidi","eferrandiz","rferrero","mfolch","dgiro","mgonzalez","dgonzalez","ogrodniewicz","llguilera","ggutierrez","dhernandez","chernando","slamas","amanach","jmartin","tmartin","nmonter","amoreno","fperal","mperez","aprat","epuig","mrabassa","broig","arubio","eruiz","csantamaria","asalvo","mtorrento","atrias","lurbano","lvila","imerino","mcecuk","msforrellat","obeltran","lvigo","mdemedeiros","mnikolic","dborrell","iargelich","nmuzaffar","gcarreras","calonso","llam"];
-			  var contrase単as = ["almendra","test1","123","456","gbombardo8359","eva.garell4379","r6746","o8732","c6537","m8342","m5874","f9854","e6743","r7454","m8434","d1435","m7687","d9823","o7362","ll8736","g7854","d4574","c8934","s8745","a5874","pacheco","t8493","n8734","a8965","f8547","m7634","a9876","e8732","m7643","b7647","a5673","e2342","c3453","a9842","m6537","a7897","l9876","l8724","i7544","m6789","m3465","b7645","l6541","m9461","m2711","d3164","i4152","n7067","g6731","c6752","l9745"];
+			  var contraseñas = ["almendra","test1","123","456","gbombardo8359","eva.garell4379","r6746","o8732","c6537","m8342","m5874","f9854","e6743","r7454","m8434","d1435","m7687","d9823","o7362","ll8736","g7854","d4574","c8934","s8745","a5874","pacheco","t8493","n8734","a8965","f8547","m7634","a9876","e8732","m7643","b7647","a5673","e2342","c3453","a9842","m6537","a7897","l9876","l8724","i7544","m6789","m3465","b7645","l6541","m9461","m2711","d3164","i4152","n7067","g6731","c6752","l9745"];
 			  var indiceNombre = -1;
 			  var indiceContrasenya = -2;
 
@@ -59,7 +60,7 @@
 					  });
 
 					  var contrasenya = document.getElementById("contrasenya").value;
-					  contrase単as.forEach(function (valor, indice, array) {
+					  contraseñas.forEach(function (valor, indice, array) {
 						  if (contrasenya == valor) {
 							  indiceContrasenya = indice;
 						  }

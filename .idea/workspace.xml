@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="331afcba-396e-41ec-8cc9-068c30c86ce2" name="Default Changelist" comment="" />
+    <list default="true" id="331afcba-396e-41ec-8cc9-068c30c86ce2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Codi/view/css/principal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Codi/view/principal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codi/view/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/Codi/view/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codi/view/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Codi/view/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codi/view/logo.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Codi/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Codi/view/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -33,6 +40,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Angel\Desktop\Información\TFG\Projecte\Codi\view\css" />
+      <recent name="C:\Users\Angel\Desktop\Información\TFG\Projecte\Codi\view" />
       <recent name="C:\Users\Angel\Desktop\Información\TFG\Projecte\Codi\controller" />
     </key>
   </component>
@@ -45,10 +54,22 @@
       <option name="presentableId" value="Default" />
       <updated>1611568140840</updated>
       <workItem from="1611568142075" duration="1812000" />
+      <workItem from="1612165893848" duration="6763000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
