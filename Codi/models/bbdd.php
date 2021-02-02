@@ -1,10 +1,10 @@
 <?php
-    $con = mysqli_connect("162.159.24.157","angel","esdiangel");
-    if (!$con)
-    {
-        die('Could not connect: ' . mysqli_error());
-    }
+    $dbhost = "localhost";
+    $dbuser = "esdionli_angel";
+    $dbpass = "surus";
+    $db = "esdionli_esdiangel";
 
-    mysqli_select_db("mysql_database_name", $con);
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: ". $conn -> error);
+    return $conn;
 
 ?>
