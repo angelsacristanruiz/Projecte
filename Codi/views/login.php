@@ -5,6 +5,7 @@
     	<link href="views/css/estilo.css" rel="stylesheet" type="text/css" />
     	<meta name="viewport" content="width=device-width, initial-scale=1" charset="euc-jp">
     	<script src="views/js/funcions.js" type="text/javascript"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -40,7 +41,7 @@
                 </div>
                 
                 <div id="poner">
-                    <textarea id="muestra"> </textarea>
+                    <p id="muestra"> </p>
                 </div>
             </form>
         </div>
