@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>ESDisponible</title>
+        
+        <style>
+            li{
+                list-style: none;
+            }
+            body {
+                margin: 0;
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 20px;
+                color: #333333;
+                background-color: #ffffff;
+                display: block;
+                overflow-y:scroll;
+            }
+
+            .fondo{
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-left: -12px;
+                padding: 5px;
+                background:#FCFCFC;
+            }
+
+            .container {
+                margin-right: auto;
+                margin-left: auto;
+                width: auto;
+                display: block;
+            }
+
+            .footer {
+                margin-right: auto;
+                margin-left: auto;
+                width: 940px;
+                display: block;
+                text-align: right;
+                font-size: 9px;
+                margin-top: 10px;
+            }
+
+            h1 {
+                font-size: 38px;
+                margin: 30px 0 10px 0;
+                font-weight: bold;
+                line-height: 20px;
+            }
+
+            .row {
+                margin-left: -20px;
+                height: 250px;
+            }
+
+            .col {
+                width: 100%;
+                float: left;
+                min-height: 1px;
+                margin-left: 0px;
+            }
+
+            p {
+                margin: 0 0 10px 0;
+            }
+
+            .carpeta{
+                background: url(/Dropbox/folder.png) no-repeat 0;
+                padding-left: 20px;
+            }
+
+            .archivo{
+                background: url(/Dropbox/file.png) no-repeat 0;
+                padding-left: 20px;
+            }
+
+            a {
+                color: #336699;
+                text-decoration: none;
+                font-weight: bolder;
+            }
+		    a:hover {
+                color: #7094B8;
+                text-decoration: none;
+                font-weight: bolder;
+            }
+            a{
+                display: block;
+                cursor: pointer;
+            }
+            .todos{
+                display: none;
+            }
+            .info{
+                display: none;
+            }
+            .mirar{
+                display: none;
+                width: 94%;
+                padding: 2%;
+                height: 537px;
+            }
+            #directorio{
+                cursor: pointer;
+                margin-left: 44.2%;
+                width: 15%;
+                margin-top: 2%;
+            }
+            #memoria{
+                display: block;
+            }
+
+            #bloqueCarpta{
+                width: 49%;
+                display: inline-block;
+                height: 100%;
+                padding: auto;
+                margin-right: 2%;
+
+            }
+
+            #bloqueArchivos{
+                width: 48%;
+                display: inline-block;
+                height: 100%;
+                padding: auto;
+                padding-top: -1%;
+            }
+
+            #bloqueDescripcion{
+                padding-right: 0.5%;
+            }
+
+            #general{
+                width: 50%;
+                margin-left: 2%;
+                display: inline;
+                height: 100%;
+                float: left;
+            }
+
+            #general2{
+                width: 45%;
+                display: inline;
+                float: right;
+                margin-right: 2%;
+            }
+
+            #enseña{
+                width: 94%;
+                padding: 2%;
+                height: 444px;
+            }
+
+            #visualiza{
+                height: 571px;
+                margin-left: 0px;
+            }
+
+            iframe{
+            	width: 100%;
+            	height: 100%;
+            }
+
+            #info{
+                width: 50%;
+                margin-left: 1.4%;
+                display: inline;
+                height: 100%;
+                float: left;
+                margin-top: 1%;
+                font-size: 19px;
+            }
+
+            .principio{
+                font-weight: bold;
+
+            }
+
+            .enLinia{
+                display: inherit;
+            }
+
+
+        </style>
+    </head>
+    <body onload="carga()">
+        <img  src="Codi/views/img/logo.png" id="directorio" onClick="location.reload(false);"> </h1>
+        <div id="general">
+            <div class="container">
+
+                <div id="bloqueCarpta">
+                    <h1 id="nombre"></h1>
+                    <div class="fondo">
+                        <div class="row">
+                            <div class="col">
+                                <ul>
+
+                                    <li>
+                                        <a onmouseenter="encima('documentacioInfo')" onclick="entra('Documentació')">Documentació</a>
+                                        <ul id="Informe Inicial" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('informeInicialInfo')" onclick="entra('Inicial')">Informe Inicial</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Informe Progrés I" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('informeProgresIInfo')" onclick="entra('ProgresI')">Informe Progrés I</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Informe Progrés II" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('informeProgresIIInfo')" onclick="entra('ProgresII')">Informe Progrés II</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Informe Final" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('informeFinalInfo')" onclick="entra('Final')">Informe Final</a>
+                                            </li>
+                                        </ul>
+
+
+                                        <a onmouseenter="encima('diagramesInfo')" onclick="entra('Diagrames')">Diagrames</a>
+
+
+                                        <a onmouseenter="encima('codiInfo')" onclick="entra('Codi')">Codi</a>
+                                        <ul id="model" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('modelsInfo')" onclick="entra('models')">models</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="view" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('viewsInfo')" onclick="entra('views')">views</a>
+                                                <ul id="cssZ" class="todos">
+                                                    <li>
+                                                        <a onmouseenter="encima('cssInfo')" onclick="entra('css')">css</a>
+                                                    </li>
+                                                </ul>
+                                                <ul id="imgZ" class="todos">
+                                                    <li>
+                                                        <a onmouseenter="encima('imgInfo')" onclick="entra('img')">img</a>
+                                                    </li>
+                                                </ul>
+                                                <ul id="jsZ" class="todos">
+                                                    <li>
+                                                        <a onmouseenter="encima('jsInfo')" onclick="entra('js')">js</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul id="controller" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('controllersInfo')" onclick="entra('controllers')">controllers</a>
+                                            </li>
+                                        </ul>
+
+                                        <a onmouseenter="encima('imatgesInfo')" onclick="entra('Imatges')">Imatges</a>
+                                        <ul id="AndroidZ" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('androidInfo')" onclick="entra('Android')">Android</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="OrdinadorZ" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('ordinadorInfo')" onclick="entra('Ordinador')">Ordinador</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="iOSZ" class="todos">
+                                            <li>
+                                                <a onmouseenter="encima('iosInfo')" onclick="entra('iOS')">iOS</a>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bloqueArchivos">
+                    <h1>Arxius</h1>
+                    <div class="fondo">
+                        <div class="row">
+                            <div class="col">
+
+                                <ul id="Documentació" class="todos">
+                                    <li id="powerPoint"><a onmouseenter="encima('powerInfo')" href="./Documentació/1457243_SacristanRuizAngel_Presentació.pptx">1457243_SacristanRuizAngel_Presentació.pptx</a></li>
+                                </ul>
+
+                                <ul id="Inicial" class="todos">
+                                    <li id="informeInicial"><a onmouseover="resultado('enseñaInformeInicial')" onmouseenter="encima('inicialInfo')" href="./Documentació/Informe Inicial/1457243_SacristanRuizAngel_InformeInicial.pdf">1457243_SacristanRuizAngel_InformeInicial.pdf</a></li>
+                                </ul>
+
+                                <ul id="ProgresI" class="todos">
+                                    <li id="informeProgresI"><a onmouseover="resultado('enseñaInformeProgresI')" onmouseenter="encima('progresIInfo')" href="./Documentació/Informe Progrés I/1457243_SacristanRuizAngel_InformeProgrés1.pdf">1457243_SacristanRuizAngel_InformeProgrés1.pdf</a></li>
+                                </ul>
+
+                                <ul id="ProgresII" class="todos">
+                                    <li id="informeProgresII"><a onmouseover="resultado('enseñaInformeProgresII')" onmouseenter="encima('progresIIInfo')" href="./Documentació/Informe Progrés II/1457243_SacristanRuizAngel_InformeProgrés2.pdf">1457243_SacristanRuizAngel_InformeProgrés2.pdf</a></li>
+                                </ul>
+
+                                <ul id="Final" class="todos">
+                                    <li id="informeFinal"><a onmouseover="resultado('enseñaInformeFinal')" onmouseenter="encima('finalInfo')" href="./Documentació/Informe Final/1457243_SacristanRuizAngel_InformeFinal.pdf">1457243_SacristanRuizAngel_InformeFinal.pdf</a></li>
+                                </ul>
+
+                                <ul id="Diagrames" class="todos">
+                                    <li id="diagramaGantt"><a onmouseenter="encima('ganttInfo')" href="./Diagrames/Diagrama de Gantt.mpp">Diagrama de Gantt.mpp</a></li>
+                                    <li id="entitatRelacio"><a onmouseover="resultado('enseñaER')" onmouseenter="encima('erInfo')" href="./Diagrames/Diagrama Entitat Relació.png">Diagrama Entitat Relació.png</a></li>
+                                    <li id="modelRelacional"><a onmouseover="resultado('enseñaRelacional')" onmouseenter="encima('relacionalInfo')" href="./Diagrames/Diagrama Model Relacional.PNG">Diagrama Model Relacional.PNG</a></li>
+                                    <li id="prototipLogin"><a onmouseover="resultado('enseñaPrototipLogin')" onmouseenter="encima('prototiploginInfo')" href="./Diagrames/Login.PNG">Login.PNG</a></li>
+                                    <li id="prototipVisualitzacio"><a onmouseover="resultado('enseñaPrototipVisualitzacio')" onmouseenter="encima('prototipVisualitzacioInfo')" href="./Diagrames/Visualització.PNG">Visualització.PNG</a></li>
+                                </ul>
+
+                                <ul id="Codi" class="todos">
+                                    <li id="index"><a onmouseover="resultado('enseñaIndex')" onmouseenter="encima('indexInfo')" href="./Codi/index.php">index.php</a></li>
+                                </ul>
+                                <ul id="models" class="todos">
+                                    <li id="conectBBDD"><a onmouseover="resultado('enseñaConect')" onmouseenter="encima('conectInfo')" href="./Codi/models/conectBBDD.php">conectBBDD.php</a></li>
+                                    <li id="checkUser"><a onmouseover="resultado('enseñaCheckuser')" onmouseenter="encima('checkUserInfo')" href="./Codi/models/checkUser.php">checkUser.php</a></li> 
+                                </ul>
+                                <ul id="views" class="todos">
+                                    <li id="loginPHP"><a onmouseover="resultado('enseñaLogin')" onmouseenter="encima('loginInfo')" href="./Codi/views/login.php">login.php</a></li>
+                                </ul>
+                                <ul id="css" class="todos">
+                                    <li id="estilo"><a onmouseover="resultado('enseñaEstilo')" onmouseenter="encima('estiloInfo')" href="./Codi/views/css/estilo.css">estilo.css</a></li>
+                                </ul>
+                                <ul id="img" class="todos">
+                                    <li id="logo"><a onmouseover="resultado('enseñaLogo')" onmouseenter="encima('logoInfo')" href="./Codi/views/img/logo.png">logo.png</a></li>
+                                </ul>
+                                <ul id="js" class="todos">
+                                    <li id="funcions"><a onmouseover="resultado('enseñaFuncions')" onmouseenter="encima('funcionsInfo')" href="./Codi/views/js/funcions.js">funcions.js</a></li>
+                                </ul>
+                                <ul id="controllers" class="todos">
+                                    <li id="initial"><a onmouseover="resultado('enseñaInitial')" onmouseenter="encima('initialInfo')" href="./Codi/controllers/initial.php">initial.php</a></li>
+                                </ul>
+
+
+                                <ul id="Imatges" class="todos">
+                                    <li id="videoAplicacio"><a onmouseover="resultado('enseñaVideoAplicacio')" onmouseenter="encima('videoAplicacioInfo')" href="./Imatges/Video aplicació.MP4">Video aplicació.MP4</a></li>
+                                </ul>
+
+                                <ul id="Android" class="todos">
+                                    <li id="androidCampObligatori2"><a onmouseover="resultado('enseñaAndroidCampObligatori2')" onmouseenter="encima('androidCampObligatoriInfo2')" href="./Imatges/Android/Camp obligatori 2.jpeg">Camp obligatori 2.jpeg</a></li>
+                                    <li id="androidCampObligatori"><a onmouseover="resultado('enseñaAndroidCampObligatori')" onmouseenter="encima('androidCampObligatoriInfo')" href="./Imatges/Android/Camp obligatori.jpeg">Camp obligatori.jpeg</a></li>
+                                    <li id="androidEntradaSortida"><a onmouseover="resultado('enseñaAndroidEntradaSortida')" onmouseenter="encima('androidEntradaSortidaInfo')" href="./Imatges/Android/Entrada sortida.jpeg">Entrada sortida.jpeg</a></li>
+                                    <li id="androidLogin"><a onmouseover="resultado('enseñaAndroidLogin')" onmouseenter="encima('androidLoginInfo')" href="./Imatges/Android/Login.jpeg">Login.jpeg</a></li>
+                                    <li id="androidUsuariIncorrecte"><a onmouseover="resultado('enseñaAndroidUsuariIncorrecte')" onmouseenter="encima('androidUsuariIncorrecteInfo')" href="./Imatges/Android/Usuari incorrecte.jpeg">Usuari incorrecte.jpeg</a></li>
+                                </ul>
+
+                                <ul id="Ordinador" class="todos">
+                                    <li id="ordinadorEntradaSortida"><a onmouseover="resultado('enseñaOrdinadorEntradasortida')" onmouseenter="encima('ordinadorEntradaSortidaInfo')" href="./Imatges/Ordinador/Entrada sortida.JPG">Entrada sortida.JPG</a></li>
+                                    <li id="ordinadorLogin"><a onmouseover="resultado('enseñaOrdinadorLogin')" onmouseenter="encima('ordinadorLoginInfo')" href="./Imatges/Ordinador/Login.JPG">Login.JPG</a></li>
+                                    <li id="ordinadorNoEntrada"><a onmouseover="resultado('enseñaOrdinadorNoEntrada')" onmouseenter="encima('ordinadorNoEntradaInfo')" href="./Imatges/Ordinador/No has realitzat una entrada.JPG">No has realitzat una entrada.JPG</a></li>
+                                    <li id="ordinadorUsusariIncorrecte"><a onmouseover="resultado('enseñaOrdinadorUsuariIncorrecte')" onmouseenter="encima('ordinadorUsuariIncorrecteInfo')" href="./Imatges/Ordinador/Usuari incorrecte.PNG">Usuari incorrecte.PNG</a></li>
+                                </ul>
+
+                                <ul id="iOS" class="todos">
+                                    <li id="iosCampObligatori"><a onmouseover="resultado('enseñaIosCampObligatori')" onmouseenter="encima('iosCampObligatoriInfo')" href="./Imatges/iOS/Camp obligatori.png">Camp obligatori.png</a></li>
+                                    <li id="iosEntradaSortida"><a onmouseover="resultado('enseñaIosEntradaSortida')" onmouseenter="encima('iosEntradaSortidaInfo')" href="./Imatges/iOS/Entrada sortida.png">Entrada sortida.png</a></li>
+                                    <li id="iosLogin"><a onmouseover="resultado('enseñaIosLogin')" onmouseenter="encima('iosLoginInfo')" href="./Imatges/iOS/Login.png">Login.png</a></li>
+                                    <li id="iosNoEntrada"><a onmouseover="resultado('enseñaIosNoEntrada')" onmouseenter="encima('iosNoEntradaInfo')" href="./Imatges/iOS/No has realitzat una entrada.PNG">No has realitzat una entrada.PNG</a></li>
+                                    <li id="iosResultats"><a onmouseover="resultado('enseñaIosResultats')" onmouseenter="encima('iosResultatsInfo')" href="./Imatges/iOS/Resultats.png">Resultats.png</a></li>
+                                    <li id="iosUsuariIncorrecte"><a onmouseover="resultado('enseñaIosUsuariIncorrecte')" onmouseenter="encima('iosUsuariIncorrecteInfo')" href="./Imatges/iOS/Usuari incorrecte.png">Usuari incorrecte.png</a></li>
+                                </ul>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bloqueDescripcion">
+                    <h1>Descripció</h1>
+                    <div class="fondo">
+                        <div class="row">
+                            <div class="col">
+                                <ul>
+                                    <li id="documentacioInfo" class="info"> Visualització de tota la documentació del TFG. Està separada per directoris amb els diferents informes que s'han realitzat i dins d'ells els arxius PDF amb tot l'informe.  </li>
+                                    <li id="powerInfo" class="info"> Presentació en format PowerPoint. No permet una previsualització, ja que fa falta l'aplicatiu Office, recomanació fer clic i es descarregarà. </li>
+                                    <li id="informeInicialInfo" class="info"> Conte l'informe inicial que es va realitzar al principi, dins d'aquest directori es pot trobar el primer informe i el comentari del tutor.  </li>
+                                    <li id="inicialInfo" class="info"> Tutor: L'estudiant presenta un projecte on els objectius i requeriments funcionals no estan del tot ben definits. S'espera que quan aquest vagi avançant tindrà més clares les funcionalitats finals a les que es vol arribar, per la complexitat que te una aplicació de control presencial on s'ha de definir molt bé totes les casuístiques existents per conèixer d’una forma més acurada l’abast del projecte. A part li falta fer un major estudi de mercat on es vegi les possibles opcions, o no ha estat inclòs en l'informe. A part el document te alguns punts on la redacció es podria millorar i nombroses faltes d'ortografia. </li>
+
+                                    <li id="informeProgresIInfo" class="info"> Conte l'informe de progrés I, dins d'aquest directori es pot trobar el primer informe i el comentari del tutor. Canvis respecte a la versió anterior: millora de la planificació del treball, millora en el format de la documentació i avanços en el codi. </li>
+                                    <li id="progresIInfo" class="info"> Tutor: Un cop presentat el primer informe de seguiment, s'ha vist una evolució molt positiva en la planificació de treball i documentació. Cal millorar la redacció en alguns punts per mantenir una línia temporal en els processos definit clarament el passat, el present i el futur a l’hora de comentar el treball. Tot i la observació, referent a la implementació i informe a millorat destacablement. </li>
+
+                                    <li id="informeProgresIIInfo" class="info"> Conte l'informe de progrés II, dins d'aquest directori es pot trobar el primer informe i el comentari del tutor. Canvis respecte a la versió anterior: documentació gairebé finalitzada, preparació per a l'exportació dels usuaris a la base de dades, configuració del codi per a la connexió amb la BBDD i realització de comprovacions d'usuari i contrasenyes. </li>
+                                    <li id="progresIIInfo" class="info"> Tutor: Ens anem acostant al final del projecte TFG i l'estudiant a millorat molt a nivell de documentació, des del primer informe, però pel què fa al desenvolupament ha de implementar la aplicació d'una forma més acurada tant per l'usuari final com pel gestor de l'eina, per poder treure els llistats i consultes de la forma més àgil i visual possible, poden explotar totes les dades del sistema i l'històric, que per normativa ha de ser de 4 anys... També esperem que aquesta implementació estigui ben reflectida a l’informe final. </li>
+
+                                    <li id="informeFinalInfo" class="info"> Conte l'informe final, dins d'aquest directori es pot trobar el primer informe i el comentari del tutor. Canvis respecte a la versió anterior: finalització del treball, documentació realitzada correctament i creació d'un dossier des de zero, programació gairebé acabada, ja que falta un petit retoc de disseny final. </li>
+                                    <li id="finalInfo" class="info"> Aquest informe no té avaluació i per tant no es va comentar. </li>
+
+
+                                    <li id="diagramesInfo" class="info"> Agrupació de tots els diagrames utilitzats en el treball. </li>
+                                    <li id="ganttInfo" class="info"> Diagrama de Gantt realitzat per a la planificació de les tasques, les seves prioritats i saber en quins temps òptims es pot dur a terme el projecte. </li>
+                                    <li id="erInfo" class="info"> Diagrama Entitat - Relació </li>
+                                    <li id="relacionalInfo" class="info"> Diagrama Model Relacional </li>
+                                    <li id="prototiploginInfo" class="info"> Prototip Login realitzat amb una tablet a mà, era un estudi inicial de com seria l'aplicació final. </li>
+                                    <li id="prototipVisualitzacioInfo" class="info"> Prototip de la visualització un cop s'ha iniciat sessió, realitzat amb una tablet a mà, era un estudi inicial de com seria l'aplicació final. </li>
+
+                                    <li id="codiInfo" class="info"> Es mostra a continuació tota la informació pertinent al codi del programa, està realitzada amb MVC (Model Vista Controllador) i per tant hi ha les carpetes models, views, i controllers. Cadascuna conté la informació necessària amb els arxius de programació. </li>
+                                    <li id="indexInfo" class="info"> Arxiu principal que crida al controlador. </li>
+                                    <li id="modelsInfo" class="info"> Conté els dos models utilitzats pel programa.  </li>
+                                    <li id="checkUserInfo" class="info"> Comprova que l'usuari estigui registrat a la base de dades i també que el seu usuari i la contrasenya siguin correctes. </li>
+                                    <li id="conectInfo" class="info"> Realitza la connexió amb la base de dades relacional. </li>
+                                    <li id="viewsInfo" class="info"> Conté l'única vista utilitzada al programa i les carpetes de css, img, js. </li>
+                                    <li id="loginInfo" class="info"> Arxiu principal de les vistes, permet mostrar tota l'aplicació amb el seu format HTML. </li>
+                                    <li id="cssInfo" class="info"> Conté els arxius necessaris pel disseny de l'aplicació.  </li>
+                                    <li id="estiloInfo" class="info"> Arxiu que dóna el disseny a l'aplicació. </li>
+                                    <li id="imgInfo" class="info"> Conté totes les imatges utilitzades en l'aplicació. </li>
+                                    <li id="logoInfo" class="info"> Logo de l'empresa ESDi. </li>
+                                    <li id="jsInfo" class="info"> Conté els arxius necessaris per a la interacció amb l'usuari. </li>
+                                    <li id="funcionsInfo" class="info"> Arxiu que permet realitzar les funcions i la interacció amb l'usuari, permet donar un feedback de forma correcta. </li>
+                                    <li id="controllersInfo" class="info"> Conté els controladors utilitzats a l'aplicació. </li>
+                                    <li id="initialInfo" class="info"> Arxiu que permet cridar a les vistes i models de forma correcta. </li>
+
+                                    <li id="imatgesInfo" class="info"> Conté totes les imatges dels resultats de l'aplicació, de forma visual que es pugui veure tot. Per una millor visualització es pot fer clic en cada imatge i s'obrirà en una pestanya més gran.  </li>
+                                    <li id="videoAplicacioInfo" class="info"> Vídeo de l'aplicació, permet visualitzar el seu correcte funcionament.  </li>
+                                    <li id="androidInfo" class="info"> Conté les imatges de l'aplicació en un dispositiu Android. </li>
+                                    <li id="androidCampObligatoriInfo2" class="info"> Demana per obligació la contrasenya. </li>
+                                    <li id="androidCampObligatoriInfo" class="info"> Demana per obligació l'usuari.</li>
+                                    <li id="androidEntradaSortidaInfo" class="info"> Informa que has de fer una entrada o una sortida obligatòriament. </li>
+                                    <li id="androidLoginInfo" class="info"> Visualització del Login. </li>
+                                    <li id="androidUsuariIncorrecteInfo" class="info"> L'usuari introdueix les dades incorrectament. </li>
+                                    <li id="ordinadorInfo" class="info"> Conté les imatges de l'aplicació en un dispositiu Ordinador. </li>
+                                    <li id="ordinadorEntradaSortidaInfo" class="info"> Visualització del resultat final. </li>
+                                    <li id="ordinadorLoginInfo" class="info"> Visualització del Login. </li>
+                                    <li id="ordinadorNoEntradaInfo" class="info"> Informa que has de fer una entrada o una sortida obligatòriament. </li>
+                                    <li id="ordinadorUsuariIncorrecteInfo" class="info"> L'usuari introdueix les dades incorrectament.</li>
+                                    <li id="iosInfo" class="info"> Conté les imatges de l'aplicació en un dispositiu iOS. </li>
+                                    <li id="iosCampObligatoriInfo" class="info"> Demana per obligació l'usuari. </li>
+                                    <li id="iosEntradaSortidaInfo" class="info"> Informa que has de fer una entrada o una sortida obligatòriament. </li>
+                                    <li id="iosLoginInfo" class="info"> Visualització del Login. </li>
+                                    <li id="iosNoEntradaInfo" class="info"> Informa que l'usuari no ha fet una entrada. </li>
+                                    <li id="iosResultatsInfo" class="info"> Visualització del resultat final. </li>
+                                    <li id="iosUsuariIncorrecteInfo" class="info"> L'usuari introdueix les dades incorrectament. </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="general2"> 
+            <h1 id="visualización">Visualització</h1>
+            <div class="fondo">
+                <div id="visualiza" class="row">
+                    <div class="col">
+                        
+                        <!-- Power Point -->
+
+                        <object id="enseñaInformeInicial" class="mirar" data="./Documentació/Informe Inicial/1457243_SacristanRuizAngel_InformeInicial.pdf" type="application/pdf">
+                            <embed src="./Documentació/Informe Inicial/1457243_SacristanRuizAngel_InformeInicial.pdf" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaInformeProgresI" class="mirar" data="./Documentació/Informe Progrés I/1457243_SacristanRuizAngel_InformeProgrés1.pdf" type="application/pdf">
+                            <embed src="./Documentació/Informe Progrés I/1457243_SacristanRuizAngel_InformeProgrés1.pdf" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaInformeProgresII" class="mirar" data="./Documentació/Informe Progrés II/1457243_SacristanRuizAngel_InformeProgrés2.pdf" type="application/pdf">
+                            <embed src="./Documentació/Informe Progrés II/1457243_SacristanRuizAngel_InformeProgrés2.pdf" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaInformeFinal" class="mirar" data="./Documentació/Informe Final/1457243_SacristanRuizAngel_InformeFinal.pdf" type="application/pdf">
+                            <embed src="./Documentació/Informe Final/1457243_SacristanRuizAngel_InformeFinal.pdf" type="application/pdf" />
+                        </object>
+
+                        <!-- Diagrama Gantt -->
+
+                        <object id="enseñaER" class="mirar" data="./Diagrames/Diagrama Entitat Relació.png" type="application/pdf">
+                            <embed src="./Diagrames/Diagrama Entitat Relació.png" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaRelacional" class="mirar" data="./Diagrames/Diagrama Model Relacional.PNG" type="application/pdf">
+                            <embed src="./Diagrames/Diagrama Model Relacional.PNG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaPrototipLogin" class="mirar" data="./Diagrames/Login.PNG" type="application/pdf">
+                            <embed src="./Diagrames/Login.PNG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaPrototipVisualitzacio" class="mirar" data="./Diagrames/Visualització.PNG" type="application/pdf">
+                            <embed src="./Diagrames/Visualització.PNG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaIndex" class="mirar" data="./Codi/index.php" type="application/pdf">
+                            <embed src="./Codi/index.php" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaConect" class="mirar" data="./Codi/models/conectBBDD.php" type="application/pdf">
+                            <embed src="./Codi/models/conectBBDD.php" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaCheckuser" class="mirar" data="./Codi/models/checkUser.php" type="application/pdf">
+                            <embed src="./Codi/models/checkUser.php" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaLogin" class="mirar" data="./Codi/views/login.php" type="application/pdf">
+                            <embed src="./Codi/views/login.php" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaEstilo" class="mirar" data="./Codi/views/css/estilo.css" type="application/pdf">
+                            <embed src="./Codi/views/css/estilo.css" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaLogo" class="mirar" data="./Codi/views/img/logo.png" type="application/pdf">
+                            <embed src="./Codi/views/img/logo.png" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaFuncions" class="mirar" data="./Codi/views/js/funcions.js" type="application/pdf">
+                            <embed src="./Codi/views/js/funcions.js" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaInitial" class="mirar" data="./Codi/controllers/initial.php" type="application/pdf">
+                            <embed src="./Codi/controllers/initial.php" type="application/pdf" />
+                        </object>
+
+
+                        <object id="enseñaVideoAplicacio" class="mirar" data="./Imatges/Video aplicació.MP4" type="application/pdf">
+                            <embed src="./Imatges/Video aplicació.MP4" type="application/pdf" />
+                        </object>
+
+
+                        <object id="enseñaAndroidCampObligatori2" class="mirar" data="./Imatges/Android/Camp obligatori 2.jpeg" type="application/pdf">
+                            <embed src="./Imatges/Android/Camp obligatori 2.jpeg" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaAndroidCampObligatori" class="mirar" data="./Imatges/Android/Camp obligatori.jpeg" type="application/pdf">
+                            <embed src="./Imatges/Android/Camp obligatori.jpeg" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaAndroidEntradaSortida" class="mirar" data="./Imatges/Android/Entrada sortida.jpeg" type="application/pdf">
+                            <embed src="./Imatges/Android/Entrada sortida.jpeg" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaAndroidLogin" class="mirar" data="./Imatges/Android/Login.jpeg" type="application/pdf">
+                            <embed src="./Imatges/Android/Login.jpeg" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaAndroidUsuariIncorrecte" class="mirar" data="./Imatges/Android/Usuari incorrecte.jpeg" type="application/pdf">
+                            <embed src="./Imatges/Android/Usuari incorrecte.jpeg" type="application/pdf" />
+                        </object>
+
+
+                        <object id="enseñaOrdinadorEntradasortida" class="mirar" data="./Imatges/Ordinador/Entrada sortida.JPG" type="application/pdf">
+                            <embed src="./Imatges/Ordinador/Entrada sortida.JPG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaOrdinadorLogin" class="mirar" data="./Imatges/Ordinador/Login.JPG" type="application/pdf">
+                            <embed src="./Imatges/Ordinador/Login.JPG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaOrdinadorNoEntrada" class="mirar" data="./Imatges/Ordinador/No has realitzat una entrada.JPG" type="application/pdf">
+                            <embed src="./Imatges/Ordinador/No has realitzat una entrada.JPG" type="application/pdf" />
+                        </object>
+
+                        <object id="enseñaOrdinadorUsuariIncorrecte" class="mirar" data="./Imatges/Ordinador/Usuari incorrecte.PNG" type="application/pdf">
+                            <embed src="./Imatges/Ordinador/Usuari incorrecte.PNG" type="application/pdf" />
+                        </object>
+
+
+                        <object id="enseñaIosCampObligatori" class="mirar" data="./Imatges/iOS/Camp obligatori.png" type="application/pdf">
+                            <embed src="./Imatges/iOS/Camp obligatori.png" type="application/pdf" />
+                        </object>
+                        <object id="enseñaIosEntradaSortida" class="mirar" data="./Imatges/iOS/Entrada sortida.png" type="application/pdf">
+                            <embed src="./Imatges/iOS/Entrada sortida.png" type="application/pdf" />
+                        </object>
+                        <object id="enseñaIosLogin" class="mirar" data="./Imatges/iOS/Login.png" type="application/pdf">
+                            <embed src="./Imatges/iOS/Login.png" type="application/pdf" />
+                        </object>
+                        <object id="enseñaIosNoEntrada" class="mirar" data="./Imatges/iOS/No has realitzat una entrada.PNG" type="application/pdf">
+                            <embed src="./Imatges/iOS/No has realitzat una entrada.PNG" type="application/pdf" />
+                        </object>
+                        <object id="enseñaIosResultats" class="mirar" data="./Imatges/iOS/Resultats.png" type="application/pdf">
+                            <embed src="./Imatges/iOS/Resultats.png" type="application/pdf" />
+                        </object>
+                        <object id="enseñaIosUsuariIncorrecte" class="mirar" data="./Imatges/iOS/Usuari incorrecte.png" type="application/pdf">
+                            <embed src="./Imatges/iOS/Usuari incorrecte.png" type="application/pdf" />
+                        </object>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="info">
+            <span class="enLinia"><span class="principio">Títol: </span><span id="titol"> ESDisponible </span> </span> 
+            <span class="enLinia"><span class="principio">Alumne i niu: </span><span id="alumne"> Angel Sacristán Ruiz 1457243 </span> </span>
+            <span class="enLinia"><span class="principio">Menció: </span><span id="niu"> Enginyeria del Software </span> </span> 
+            <span class="enLinia"><span class="principio">Tutor: </span><span id="tutor"> Marc Talló Sendra </span> </span>
+            <span class="enLinia"><span class="principio">Curs: </span><span id="curs"> 2020/21 </span> </span>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+
+        function resultado(saldra){
+            var x = document.getElementsByClassName("mirar");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+
+            document.getElementById(saldra).style.display = "block";
+        }
+
+        function encima(archivo){
+            var x = document.getElementsByClassName("info");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+
+            document.getElementById(archivo).style.display = "block";
+
+        }
+
+        function entra(carpeta){
+            var x = document.getElementsByClassName("todos");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+
+            document.getElementById(carpeta).style.display = "block";
+
+
+            if(carpeta == "Documentació" || carpeta == "Inicial" || carpeta == "ProgresI" || carpeta == "ProgresII" || carpeta == "Final"){
+                document.getElementById("Informe Inicial").style.display = "block";
+                document.getElementById("Informe Progrés I").style.display = "block";
+                document.getElementById("Informe Progrés II").style.display = "block";
+                document.getElementById("Informe Final").style.display = "block";
+            }
+
+            if(carpeta == "Codi" || carpeta == "models" || carpeta == "views" || carpeta == "controllers"){
+                document.getElementById("model").style.display = "block";
+                document.getElementById("view").style.display = "block";
+                document.getElementById("controller").style.display = "block";
+            }
+
+            if(carpeta == "views" || carpeta == "css" || carpeta == "img" || carpeta == "js"){
+                document.getElementById("model").style.display = "block";
+                document.getElementById("view").style.display = "block";
+                document.getElementById("controller").style.display = "block";
+                document.getElementById("cssZ").style.display = "block";
+                document.getElementById("imgZ").style.display = "block";
+                document.getElementById("jsZ").style.display = "block";
+            }
+
+            if(carpeta == "Imatges" || carpeta == "Android" || carpeta == "Ordinador" || carpeta == "iOS"){
+                document.getElementById("AndroidZ").style.display = "block";
+                document.getElementById("OrdinadorZ").style.display = "block";
+                document.getElementById("iOSZ").style.display = "block";
+            }
+
+
+
+        }
+
+        function carga(){
+            var carpeta = document.getElementById("nombre");
+
+            var loc = window.location.pathname;
+            var dir = loc.substring(0, loc.lastIndexOf("/"));
+
+            var separa = dir.split("/", 200);
+            var directori = separa[separa.length -1];
+
+            if(directori == "SHiFT"){
+                carpeta.innerHTML = "Directoris";
+            }else{
+                carpeta.innerHTML = "Directoris";
+            }
+        }
+
+    </script>
+</html>
